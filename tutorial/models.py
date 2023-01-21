@@ -5,10 +5,6 @@ from django.shortcuts import reverse
 
 
 
-class ProductManager(models.Manager):
-    def get_queryset(self):
-        return super(ProductManager, self).get_queryset().filter(is_activated=True)
-
 class Category(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(unique=True)
@@ -32,7 +28,7 @@ class Product(models.Model):
     create = models.DateTimeField(auto_now_add=True)
     update = models.DateTimeField(auto_now=True)
     is_activated = models.BooleanField(default=True)
-    progucts =ProductManager()
+
 
     class Meta:
         ordering = ('-create',)
@@ -41,4 +37,4 @@ class Product(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('tutorial:product_detail', args=[self.slug])
+        return reverse('tutorial:detail', args=[self.slug])

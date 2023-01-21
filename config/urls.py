@@ -22,7 +22,7 @@ from .settings import DEBUG
 urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('admin/', admin.site.urls),
-    path('', include('tutorial.urls')),
+    path('', include(('tutorial.urls','tutorial'), namespace='tutorial'))
 
 ]
 
