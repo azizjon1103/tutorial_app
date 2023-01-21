@@ -140,9 +140,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar': 'Basic',
+        'toolbar': 'Pro',
     },
 }
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_RESTRICT_BY_USER = True
+
+
+# media url
+MEDIA_URL = 'media/'
+MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
+
+
